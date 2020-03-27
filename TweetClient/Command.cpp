@@ -88,7 +88,7 @@ namespace client {
 		std::string follow;
 		std::cin >> follow;
 		proto::FollowIn follow_in{};
-		follow_in.set_name(follow);
+		follow_in.set_user(follow);
 		proto::FollowOut follow_out = client_->Follow(follow_in);
 		if (!follow_out.error())
 		{
@@ -151,7 +151,7 @@ namespace client {
 		std::cin >> pass;
 		proto::LoginIn login_in{};
 		login_in.set_user(name);
-		login_in.set_pass(pass);
+		login_in.set_password(pass);
 		proto::LoginOut login_out = client_->Login(login_in);
 		if (!login_out.error())
 		{
@@ -192,8 +192,8 @@ namespace client {
 		std::string pass;
 		std::cin >> pass;
 		proto::RegisterIn register_in{};
-		register_in.set_name(name);
-		register_in.set_pass(pass);
+		register_in.set_user(name);
+		register_in.set_password(pass);
 		proto::RegisterOut register_out = client_->Register(register_in);
 		if (!register_out.error())
 		{

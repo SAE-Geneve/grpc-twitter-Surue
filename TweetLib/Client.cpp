@@ -2,40 +2,70 @@
 
 namespace tweet {
 
-	proto::TweetOut Client::Tweet(const proto::TweetIn in)
-	{
-#pragma message ("You have to complete this code!")
-		return {};
-	}
+proto::TweetOut Client::Tweet(const proto::TweetIn in)
+{
+    grpc::ClientContext clientContext;
+    proto::TweetOut out;
 
-	proto::FollowOut Client::Follow(const proto::FollowIn in)
-	{
-#pragma message ("You have to complete this code!")
-		return {};
-	}
+    const auto status = stub_->Tweet(&clientContext, in, &out);
 
-	proto::ShowOut Client::Show(const proto::ShowIn in)
-	{
-#pragma message ("You have to complete this code!")
-		return {};
-	}
+    if (!status.ok()) { throw std::runtime_error("Tweet error."); }
+    return out;
+}
 
-	proto::LoginOut Client::Login(const proto::LoginIn in)
-	{
-#pragma message ("You have to complete this code!")
-		return {};
-	}
+proto::FollowOut Client::Follow(const proto::FollowIn in)
+{
+	grpc::ClientContext clientContext;
+	proto::FollowOut out;
 
-	proto::LogoutOut Client::Logout(const proto::LogoutIn in)
-	{
-#pragma message ("You have to complete this code!")
-		return {};
-	}
+	const auto status = stub_->Follow(&clientContext, in, &out);
 
-	proto::RegisterOut Client::Register(const proto::RegisterIn in)
-	{
-#pragma message ("You have to complete this code!")
-		return {};
-	}
+	if (!status.ok()) { throw std::runtime_error("Follow error."); }
+    return out;
+}
+
+proto::ShowOut Client::Show(const proto::ShowIn in)
+{
+	grpc::ClientContext clientContext;
+	proto::ShowOut out;
+
+	const auto status = stub_->Show(&clientContext, in, &out);
+
+	if (!status.ok()) { throw std::runtime_error("Show error."); }
+    return out;
+}
+
+proto::LoginOut Client::Login(const proto::LoginIn in)
+{
+	grpc::ClientContext clientContext;
+	proto::LoginOut out;
+
+	const auto status = stub_->Login(&clientContext, in, &out);
+
+	if (!status.ok()) { throw std::runtime_error("Login error."); }
+	return out;
+}
+
+proto::LogoutOut Client::Logout(const proto::LogoutIn in)
+{
+	grpc::ClientContext clientContext;
+	proto::LogoutOut out;
+
+	const auto status = stub_->Logout(&clientContext, in, &out);
+
+	if (!status.ok()) { throw std::runtime_error("Logout error."); }
+	return out;
+}
+
+proto::RegisterOut Client::Register(const proto::RegisterIn in)
+{
+	grpc::ClientContext clientContext;
+	proto::RegisterOut out;
+
+	const auto status = stub_->Register(&clientContext, in, &out);
+
+	if (!status.ok()) { throw std::runtime_error("Register error."); }
+	return out;
+}
 
 } // End namespace tweet.
