@@ -60,9 +60,7 @@ message LoginOut {
 	bool error = 1;
 }
 
-message LogoutIn {
-	string user = 1;
-} 
+message LogoutIn { } 
 
 message LogoutOut { 
 	bool error = 1;
