@@ -46,5 +46,4 @@ public:
 private:
     const std::shared_ptr<Storage> storage_;
 };
-
 } //namespace tweet

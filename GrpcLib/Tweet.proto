@@ -25,7 +25,7 @@ service TweetService {
 }
 
 message TweetIn {
-	string user	= 1;
+	string user = 1;
 	string content = 2;
 	int64 time = 3;
 }

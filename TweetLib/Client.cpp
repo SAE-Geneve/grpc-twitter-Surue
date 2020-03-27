@@ -67,5 +67,4 @@ proto::RegisterOut Client::Register(const proto::RegisterIn in)
 	if (!status.ok()) { throw std::runtime_error("Register error."); }
 	return out;
 }
-
-} // End namespace tweet.
+} // namespace tweet
